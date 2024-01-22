@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: REPLACE_ME
+spec:
+  generators:
+  - matrix:
+      generators:
+      - list:
+          elements:
+          - cluster: dev
+          - cluster: stage
+          - cluster: prod
+      - list:
+          elements:
+          - project: REPLACE_ME
+  template:
+    metadata:
+      name: 'guestbook-{{project}}-{{cluster}}'
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: REPLACE_ME
+        targetRevision: HEAD
+        path: configs/guestbook/env/{{cluster}}
+      destination:
+        name: '{{cluster}}'
+        namespace: '{{guestbook}}-{{project}}'
+
