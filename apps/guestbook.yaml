@@ -25,5 +25,5 @@ spec:
         path: configs/guestbook/env/{{cluster}}
       destination:
         name: '{{cluster}}'
-        namespace: '{{guestbook}}-{{project}}'
+        namespace: 'guestbook-{{project}}'
 
