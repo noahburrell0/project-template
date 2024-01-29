@@ -17,6 +17,8 @@ spec:
   template:
     metadata:
       name: 'guestbook-{{project}}-{{cluster}}'
+      labels:
+        project-cleanup: "true"
     spec:
       project: '{{project}}'
       syncPolicy:
