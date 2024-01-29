@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: REPLACE_ME
+  name: REPLACE_ME_NAME
 spec:
   generators:
   - matrix:
@@ -13,14 +13,14 @@ spec:
           - cluster: prod
       - list:
           elements:
-          - project: REPLACE_ME
+          - project: REPLACE_ME_PROJECT
   template:
     metadata:
       name: 'guestbook-{{project}}-{{cluster}}'
     spec:
       project: '{{project}}'
       source:
-        repoURL: REPLACE_ME
+        repoURL: REPLACE_ME_REPO
         targetRevision: HEAD
         path: configs/guestbook/env/{{cluster}}
       destination:
