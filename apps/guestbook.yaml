@@ -19,8 +19,6 @@ spec:
       name: 'guestbook-{{project}}-{{cluster}}'
       labels:
         project-cleanup: "true"
-      finalizers:
-      - resources-finalizer.argocd.argoproj.io
     spec:
       project: '{{project}}'
       syncPolicy:
